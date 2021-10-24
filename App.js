@@ -1,6 +1,6 @@
 import React from 'react';
-import {View, Text} from 'react-native';
-import BtnApp from './components/BtnApp/BtnApp';
+// import BtnApp from './components/BtnApp/BtnApp.js';
+import TextInputApp from './components/TextInputApp/TextInputApp.js';
 
 /**
  * Sample React Native App
@@ -10,6 +10,6 @@ import BtnApp from './components/BtnApp/BtnApp';
  * @flow strict-local
  */
 const App = () => {
-  return <BtnApp />;
+  return <TextInputApp />;
 };
 export default App;
