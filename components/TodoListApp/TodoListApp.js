@@ -10,7 +10,7 @@ const TodoListApp = () => {
     setTodos([
       ...todos,
       {
-        value: value,
+        value,
         checked: false,
         id: new Date().getTime(),
       },
@@ -30,15 +30,27 @@ const TodoListApp = () => {
     setTodos(cloneTodos);
   };
 
+  const editTodoHandler = (id, value) => {
+    const cloneTodos = [...todos];
+    const index = cloneTodos.findIndex(todo => todo.id === id);
+    const selectedTodo = {...cloneTodos[index]};
+    selectedTodo.value = value;
+    cloneTodos[index] = selectedTodo;
+    setTodos(cloneTodos);
+  };
+
   return (
-    <View style={styles.todoListContainer}>
-      <Text style={styles.header}>Todo List App</Text>
-      <AddTodo onAdd={addTodoHandler} />
-      <TodoList
-        todos={todos}
-        onDelete={deleteTodoHandler}
-        onChecked={checkedTodoHandler}
-      />
+    <View style={styles.container}>
+      <View style={styles.todoListContainer}>
+        <Text style={styles.header}>Todo List App</Text>
+        <AddTodo onSubmit={addTodoHandler} />
+        <TodoList
+          todos={todos}
+          onDelete={deleteTodoHandler}
+          onChecked={checkedTodoHandler}
+          onEdit={editTodoHandler}
+        />
+      </View>
     </View>
   );
 };
@@ -46,6 +58,10 @@ const TodoListApp = () => {
 export default TodoListApp;
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#ffffff',
+  },
   todoListContainer: {
     marginTop: 34,
     padding: 20,

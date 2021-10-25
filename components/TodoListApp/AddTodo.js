@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {
   View,
   Text,
@@ -7,22 +7,31 @@ import {
   StyleSheet,
 } from 'react-native';
 
-const AddTodo = ({onAdd}) => {
-  const [todo, setTodo] = useState('');
-
+const AddTodo = ({onSubmit, value}) => {
+  const [todo, setTodo] = useState(value ? value : '');
+  const inpRef = useRef();
+  useEffect(() => {
+    inpRef.current.focus();
+  }, []);
   const changeTextHandler = text => {
     setTodo(text);
+  };
+
+  const submitHandler = () => {
+    onSubmit(todo);
+    setTodo('');
   };
 
   return (
     <View style={styles.addTodoContainer}>
       <TextInput
+        ref={inpRef}
         style={styles.addTodoInput}
         onChangeText={changeTextHandler}
         defaultValue={todo}
       />
-      <TouchableOpacity style={styles.addTodoBtn} onPress={() => onAdd(todo)}>
-        <Text style={styles.addTodoText}>Add Todo</Text>
+      <TouchableOpacity style={styles.addTodoBtn} onPress={submitHandler}>
+        <Text style={styles.addTodoText}>{!value ? 'Add Todo' : 'submit'}</Text>
       </TouchableOpacity>
     </View>
   );
