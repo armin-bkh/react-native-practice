@@ -3,8 +3,12 @@ import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 
 const TodoItem = ({item, onDelete, onEdit, onChecked}) => {
   return (
-    <View onPress={onChecked} style={styles.todoItem}>
-      <Text style={styles.todoText}>{item.value}</Text>
+    <View style={styles.todoItem}>
+      <Text
+        onPress={onChecked}
+        style={[item.checked && styles.todoChecked, styles.todoText]}>
+        {item.value}
+      </Text>
       <TouchableOpacity style={styles.todoBtn} onPress={onDelete}>
         <Text>Delete</Text>
       </TouchableOpacity>
@@ -35,7 +39,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
   },
   todoChecked: {
-    textDecorationColor: '#EFEFEF',
+    textDecorationColor: '#000',
     textDecorationLine: 'line-through',
     textDecorationStyle: 'solid',
   },

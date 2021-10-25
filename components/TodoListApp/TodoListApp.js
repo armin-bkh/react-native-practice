@@ -5,6 +5,7 @@ import TodoList from './TodoList';
 
 const TodoListApp = () => {
   const [todos, setTodos] = useState([]);
+
   const addTodoHandler = value => {
     setTodos([
       ...todos,
@@ -15,11 +16,29 @@ const TodoListApp = () => {
       },
     ]);
   };
+
+  const deleteTodoHandler = id => {
+    setTodos(prevTodos => prevTodos.filter(todo => todo.id !== id));
+  };
+
+  const checkedTodoHandler = id => {
+    const cloneTodos = [...todos];
+    const index = cloneTodos.findIndex(todo => todo.id === id);
+    const selectedTodo = {...cloneTodos[index]};
+    selectedTodo.checked = !selectedTodo.checked;
+    cloneTodos[index] = selectedTodo;
+    setTodos(cloneTodos);
+  };
+
   return (
     <View style={styles.todoListContainer}>
       <Text style={styles.header}>Todo List App</Text>
       <AddTodo onAdd={addTodoHandler} />
-      <TodoList todos={todos} />
+      <TodoList
+        todos={todos}
+        onDelete={deleteTodoHandler}
+        onChecked={checkedTodoHandler}
+      />
     </View>
   );
 };
