@@ -1,5 +1,12 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet, ScrollView, FlatList} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  FlatList,
+  TouchableOpacity,
+} from 'react-native';
 
 const ListScrollView = () => {
   const [people, setPeople] = useState([
@@ -12,6 +19,10 @@ const ListScrollView = () => {
     {name: 'Ariya', id: '7'},
     {name: 'Ali', id: '8'},
   ]);
+
+  const pressHandler = id => {
+    setPeople(prevPeople => prevPeople.filter(person => person.id !== id));
+  };
 
   return (
     // <ScrollView>
@@ -30,7 +41,9 @@ const ListScrollView = () => {
         numColumns={1}
         keyExtractor={item => item.id}
         renderItem={({item}) => (
-          <Text style={styles.listItem}>{item.name}</Text>
+          <TouchableOpacity onPress={() => pressHandler(item.id)}>
+            <Text style={styles.listItem}>{item.name}</Text>
+          </TouchableOpacity>
         )}
       />
     </View>
