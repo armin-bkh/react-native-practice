@@ -7,7 +7,7 @@ import {
   StyleSheet,
 } from 'react-native';
 
-const AddTodo = ({addTodo}) => {
+const AddTodo = ({onAdd}) => {
   const [todo, setTodo] = useState('');
 
   const changeTextHandler = text => {
@@ -35,6 +35,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
+    marginBottom: 10,
   },
   addTodoInput: {
     paddingVertical: 10,

@@ -17,6 +17,7 @@ const TodoListApp = () => {
   };
   return (
     <View style={styles.todoListContainer}>
+      <Text style={styles.header}>Todo List App</Text>
       <AddTodo onAdd={addTodoHandler} />
       <TodoList todos={todos} />
     </View>
@@ -29,5 +30,11 @@ const styles = StyleSheet.create({
   todoListContainer: {
     marginTop: 34,
     padding: 20,
+  },
+  header: {
+    fontSize: 30,
+    fontWeight: 'bold',
+    marginBottom: 10,
+    color: '#185ADB',
   },
 });
