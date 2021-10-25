@@ -1,6 +1,7 @@
 import React from 'react';
+import ListScrollView from './components/ListsScrollView/ListScrollView';
 // import BtnApp from './components/BtnApp/BtnApp.js';
-import TextInputApp from './components/TextInputApp/TextInputApp.js';
+// import TextInputApp from './components/TextInputApp/TextInputApp.js';
 
 /**
  * Sample React Native App
@@ -10,6 +11,6 @@ import TextInputApp from './components/TextInputApp/TextInputApp.js';
  * @flow strict-local
  */
 const App = () => {
-  return <TextInputApp />;
+  return <ListScrollView />;
 };
 export default App;
