@@ -13,6 +13,7 @@ const SelectBox = ({options, onFilter}) => {
   return (
     <View style={styles.selectBoxContainer}>
       <TouchableOpacity
+        onBlur={() => setIsShow(false)}
         onPress={() => setIsShow(prevIsShow => !prevIsShow)}
         style={styles.selectViewr}>
         <Text>{selectedOption}</Text>
@@ -55,9 +56,11 @@ const styles = StyleSheet.create({
     borderColor: '#777',
     borderRadius: 5,
     borderWidth: 1,
+    padding: 5,
   },
   option: {
     paddingHorizontal: 10,
     paddingVertical: 8,
+    borderBottomColor: '#777',
   },
 });

@@ -31,6 +31,7 @@ const AddTodo = ({onSubmit, value}) => {
         style={styles.addTodoInput}
         onChangeText={changeTextHandler}
         defaultValue={todo}
+        placeholder={!value ? 'write you`r todos...' : 'edit you`r todo'}
       />
       <TouchableOpacity style={styles.addTodoBtn} onPress={submitHandler}>
         <Text style={styles.addTodoText}>{!value ? 'Add Todo' : 'submit'}</Text>
