@@ -1,5 +1,6 @@
 import React from 'react';
-import ListScrollView from './components/ListsScrollView/ListScrollView';
+import TodoListApp from './components/TodoListApp/TodoListApp';
+// import ListScrollView from './components/ListsScrollView/ListScrollView';
 // import BtnApp from './components/BtnApp/BtnApp.js';
 // import TextInputApp from './components/TextInputApp/TextInputApp.js';
 
@@ -11,6 +12,6 @@ import ListScrollView from './components/ListsScrollView/ListScrollView';
  * @flow strict-local
  */
 const App = () => {
-  return <ListScrollView />;
+  return <TodoListApp />;
 };
 export default App;
