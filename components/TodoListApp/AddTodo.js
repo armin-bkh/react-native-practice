@@ -18,8 +18,10 @@ const AddTodo = ({onSubmit, value}) => {
   };
 
   const submitHandler = () => {
-    onSubmit(todo);
-    setTodo('');
+    if (todo) {
+      onSubmit(todo);
+      setTodo('');
+    }
   };
 
   return (
