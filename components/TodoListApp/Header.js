@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import SelectBox from './SelectBox';
-const Navbar = ({onFilter}) => {
+const Header = ({onFilter}) => {
   return (
-    <View style={styles.navBar}>
-      <Text style={styles.header}>Todo List App</Text>
+    <View style={styles.header}>
+      <Text style={styles.title}>Todo List App</Text>
       <SelectBox
         onFilter={onFilter}
         options={[
@@ -17,21 +17,24 @@ const Navbar = ({onFilter}) => {
   );
 };
 
-export default Navbar;
+export default Header;
 
 const styles = StyleSheet.create({
-  navBar: {
+  header: {
     zIndex: 20,
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginBottom: 20,
+    paddingTop: 50,
+    paddingBottom: 10,
+    paddingHorizontal: 20,
+    backgroundColor: '#185ADB',
   },
-  header: {
+  title: {
     fontSize: 30,
     fontWeight: 'bold',
     marginBottom: 10,
-    color: '#185ADB',
+    color: '#fff',
   },
 });

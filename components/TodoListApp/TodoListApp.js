@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import AddTodo from './AddTodo';
-import Navbar from './Navbar';
+import Header from './Header';
 import TodoList from './TodoList';
 
 const TodoListApp = () => {
@@ -57,8 +57,8 @@ const TodoListApp = () => {
 
   return (
     <View style={styles.container}>
+      <Header onFilter={filterTodosHandler} />
       <View style={styles.todoListContainer}>
-        <Navbar onFilter={filterTodosHandler} />
         <AddTodo onSubmit={addTodoHandler} />
         {todos.length ? (
           <TodoList
@@ -83,7 +83,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
   },
   todoListContainer: {
-    marginTop: 34,
     padding: 20,
   },
   todoMessage: {
