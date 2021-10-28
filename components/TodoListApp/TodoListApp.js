@@ -1,5 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {
+  View,
+  Text,
+  TouchableWithoutFeedback,
+  StyleSheet,
+  Keyboard,
+} from 'react-native';
 import AddTodo from './AddTodo';
 import Header from './Header';
 import TodoList from './TodoList';
@@ -56,22 +62,24 @@ const TodoListApp = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <Header onFilter={filterTodosHandler} />
-      <View style={styles.todoListContainer}>
-        <AddTodo onSubmit={addTodoHandler} />
-        {todos.length ? (
-          <TodoList
-            todos={todos}
-            onDelete={deleteTodoHandler}
-            onChecked={checkedTodoHandler}
-            onEdit={editTodoHandler}
-          />
-        ) : (
-          <Text style={styles.todoMessage}>Todo list is emtey!</Text>
-        )}
+    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+      <View style={styles.container}>
+        <Header onFilter={filterTodosHandler} />
+        <View style={styles.todoListContainer}>
+          <AddTodo onSubmit={addTodoHandler} />
+          {todos.length ? (
+            <TodoList
+              todos={todos}
+              onDelete={deleteTodoHandler}
+              onChecked={checkedTodoHandler}
+              onEdit={editTodoHandler}
+            />
+          ) : (
+            <Text style={styles.todoMessage}>Todo list is emtey!</Text>
+          )}
+        </View>
       </View>
-    </View>
+    </TouchableWithoutFeedback>
   );
 };
 

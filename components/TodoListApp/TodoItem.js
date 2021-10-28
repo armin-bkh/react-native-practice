@@ -6,7 +6,7 @@ const TodoItem = ({item, onDelete, onEdit, onChecked}) => {
     <View style={styles.todoItem}>
       <Text
         onPress={onChecked}
-        style={[item.checked && styles.todoChecked, styles.todoText]}>
+        style={[styles.todoText, item.checked && styles.todoChecked]}>
         {item.value}
       </Text>
       <TouchableOpacity style={styles.todoBtn} onPress={onDelete}>
@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
     textDecorationColor: '#000',
     textDecorationLine: 'line-through',
     textDecorationStyle: 'solid',
+    color: '#777',
   },
   todoBtn: {
     paddingHorizontal: 10,

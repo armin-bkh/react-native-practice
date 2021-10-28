@@ -8,6 +8,7 @@ const SelectBox = ({options, onFilter}) => {
   const changeSelectOptionHandler = value => {
     setSelectedOption(value);
     onFilter(value);
+    setIsShow(false);
   };
 
   return (
