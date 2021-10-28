@@ -91,6 +91,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
   },
   todoListContainer: {
+    flex: 1,
     padding: 20,
   },
   todoMessage: {

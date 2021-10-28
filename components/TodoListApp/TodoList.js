@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, FlatList} from 'react-native';
+import {View, FlatList, StyleSheet} from 'react-native';
 import AddTodo from './AddTodo';
 import TodoItem from './TodoItem';
 
@@ -12,7 +12,7 @@ const TodoList = ({todos, onChecked, onDelete, onEdit}) => {
   };
 
   return (
-    <View>
+    <View style={styles.list}>
       <FlatList
         data={todos}
         keyExtractor={item => item.id}
@@ -34,3 +34,9 @@ const TodoList = ({todos, onChecked, onDelete, onEdit}) => {
 };
 
 export default TodoList;
+
+const styles = StyleSheet.create({
+  list: {
+    flex: 1,
+  },
+});
