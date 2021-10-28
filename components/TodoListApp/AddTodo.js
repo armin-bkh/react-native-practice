@@ -5,6 +5,7 @@ import {
   TextInput,
   TouchableOpacity,
   StyleSheet,
+  Alert,
 } from 'react-native';
 
 const AddTodo = ({onSubmit, value}) => {
@@ -18,10 +19,14 @@ const AddTodo = ({onSubmit, value}) => {
   };
 
   const submitHandler = () => {
-    if (todo) {
-      onSubmit(todo);
-      setTodo('');
+    if (!todo) {
+      Alert.alert('Oops!', 'minimum chars in the input must be 1', [
+        {text: 'ok!', onPress: () => inpRef.current.focus()},
+      ]);
+      return;
     }
+    onSubmit(todo);
+    setTodo('');
   };
 
   return (
